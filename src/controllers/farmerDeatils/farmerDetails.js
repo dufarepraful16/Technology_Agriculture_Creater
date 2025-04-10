@@ -62,45 +62,6 @@ const farmerDetailsObj = {
     },
 
 
-    // registerFarmer: async (req, res) => {
-    //     const { name, phone, village, cropType, createdBy } = req.body;
-
-    //     try {
-    //         const creator = await UserRepository.findById(createdBy);
-    //         console.log("creator", creator);
-
-    //         if (!creator || creator.role !== usersRoles.SCP) {
-    //             return res.status(resCode.HTTP_FORBIDDEN).json({
-    //                 message: apiErrorStrings.UNAUTHORIZED_ACCESS,
-    //                 errorType: errorTypes.UNAUTHORIZED_ACCESS,
-    //             });
-    //         }
-
-    //         const farmer = await UserRepository.createFarmer({
-    //             name,
-    //             phone,
-    //             village,
-    //             cropType,
-    //             createdBy,
-    //             role: usersRoles.FARMER,
-    //             password: null,
-    //         });
-
-    //         return res.status(resCode.HTTP_CREATE).json({
-    //             message: apiSuccessStrings.ADDED('Farmer'),
-    //             farmerId: farmer._id,
-    //         });
-    //     } catch (err) {
-    //         return res.status(resCode.HTTP_INTERNAL_SERVER_ERROR).json({
-    //             message: apiErrorStrings.SERVER_ERROR,
-    //             error: err.message,
-    //             errorType: errorTypes.INTERNAL_SERVER_ERROR,
-    //         });
-    //     }
-
-    // },
-
-
     createFarmer: async (req, res) => {
         try {
           let response = await UserRepository.checkAndCreate(req.body);

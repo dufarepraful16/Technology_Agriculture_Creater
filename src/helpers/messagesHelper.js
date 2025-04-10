@@ -68,6 +68,7 @@ const MESSAGES = {
     apiSuccessStrings: {
       PASSWORD: (data) => `Your password has been ${data}`,
       SIGNUP_SUCCESS: 'User registered successfully!',
+      SIGNIN_SUCCESS: 'Login done successfully!',
       SHOP_CREATE_SUCCESS: 'The business account has been successfully created',
       OTP_SENT_SUCCESS: 'OTP sent successfully!',
       OTP_VERIFIED: 'OTP verified successfully',
