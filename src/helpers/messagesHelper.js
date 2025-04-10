@@ -33,6 +33,8 @@ const MESSAGES = {
     },
     apiErrorStrings: {
       INVALID_REQUEST: 'Invalid request',
+      UNAUTHORIZED_ACCESS: 'UnAuthorized User',
+      FORBIDDEN: 'Invalid Token',
       SERVER_ERROR: 'Internal server error',
       USER_EXISTS: (data) => `User already exists with this same ${data}`,
       USER_NOT_EXISTS: (data) => `No account exists with this ${data}`,

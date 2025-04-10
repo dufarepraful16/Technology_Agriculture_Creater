@@ -1,7 +1,5 @@
 const UserRepository = require('../../models/repository/userRepository');
-const { usersRoles } = require('../../config/options');
 const MESSAGES = require('../../helpers/messagesHelper');
-const { resCode, apiErrorStrings, apiSuccessStrings, errorTypes } = MESSAGES;
 const mongoose = require('mongoose');
 
 
@@ -33,6 +31,7 @@ const farmerDetailsObj = {
 
             const pipeline = [
                 { $match: matchStage },
+
                 {
                     $project: {
                         _id: 1,
@@ -64,13 +63,16 @@ const farmerDetailsObj = {
 
     createFarmer: async (req, res) => {
         try {
-          let response = await UserRepository.checkAndCreate(req.body);
+          const createdBy = req.user.id;
+          const payload = { ...req.body, createdBy };
+          let response = await UserRepository.checkAndCreate(payload);
           return res.status(200).json(response);
         } catch (e) {
           const errors = MESSAGES.apiErrorStrings.SERVER_ERROR;
           return res.status(500).json({ message: errors, error: e.message });
         }
       },
+      
       
 }
 

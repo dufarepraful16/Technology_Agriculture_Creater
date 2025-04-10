@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "99d0e5fb-af50-4aa4-bdd2-a3aad1fe7e08",
+		"name": "Technology_Agriculture_Creater Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33038009"
+	},
+	"item": [
+		{
+			"name": "Add SCP User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Pratik\",\r\n    \"email\":\"pratik@gmail.com\",\r\n    \"phone\":\"7856914250\",\r\n    \"password\":\"Pratik@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "SCP User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"pratik@gmail.com\",\r\n    \"password\": \"Pratik@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Farmer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y3NmIxMWNlY2Y1YjNiZjI0NTYxNDUiLCJyb2xlIjoiU0NQIiwiaWF0IjoxNzQ0MjgyMDAwLCJleHAiOjE3NDQyODU2MDB9.pJN63SfLWbBB42HU-JMnFNtq4_-xf_b-RL6qvuj9yiY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"vaibhav\",\r\n    \"phone\":\"7856914258\",\r\n    \"village\": \"Nagpur\",\r\n    \"cropType\": \"Harbhara\",\r\n    \"createdBy\": \"67f76b11cecf5b3bf2456145\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/farmer-details/create"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll Farmers By userId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/farmer-details?page=1&pageSize=10&search=&userId=67f7985033894adf29d68984",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"farmer-details"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": ""
+						},
+						{
+							"key": "userId",
+							"value": "67f7985033894adf29d68984"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
